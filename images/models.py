@@ -18,6 +18,8 @@ class Image(models.Model):
             models.Index(fields=['-created']),
         ]
         ordering = ['-created']
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
 
     def __str__(self) -> str:
         return self.title
