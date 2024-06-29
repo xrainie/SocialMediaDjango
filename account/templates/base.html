@@ -28,7 +28,7 @@
  Hello {{ request.user.first_name|default:request.user.username }},
  <form action="{% url "account:logout" %}" method='post'>
     {% csrf_token %}
-    <a href="{% url "account:logout" %}">Logout</a>
+    <input type="submit" value='Logout'>
  </form>
  {% else %}
  <a href="{% url "account:login" %}">Log-in</a>

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGIN_URL
+from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_ROOT, MEDIA_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,13 +33,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -125,6 +125,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
